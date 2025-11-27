@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lasni's Lassana Designs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --pastel-bg: #f9f0e4;
+            --pastel-header: #ffeeb5;
+            --pastel-yellow: #ffef99;
+            --pastel-pink: #ffd6e5;
+            --pastel-mint: #d4f4ea;
+            --pastel-lavender: #e0d7ff;
+            --accent-yellow: #f7c948;
+            --accent-pink: #f29fb7;
+            --accent-mint: #5fb8a6;
+            --accent-lavender: #7a6fdc;
+            --border-soft: #f3cfa0;
+            --text-main: #262335;
+            --text-dark: #1b1824;
+            --text-muted: #55526b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(120deg, var(--pastel-bg) 75%, var(--pastel-mint) 100%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            background: linear-gradient(90deg, var(--pastel-header), var(--pastel-yellow) 60%);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 16px 0 #d1a72e66;
+            padding: 18px 16px 14px 16px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.7rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            text-shadow: 0 2px 10px #b5890077;
+            margin-bottom: 4px;
+        }
+
+        nav {
+            margin-top: 6px;
+        }
+        nav a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: var(--text-dark);
+            font-size: 0.98rem;
+            border-bottom: 2px solid transparent;
+            border-radius: 18px;
+            padding: 6px 14px 5px 14px;
+            transition: color 0.18s, border-bottom 0.18s, background 0.18s, box-shadow 0.18s;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        nav a:hover,
+        nav a:focus,
+        nav a.active {
+            color: #ffffff;
+            background: var(--accent-lavender);
+            border-bottom: 2px solid var(--accent-pink);
+            box-shadow: 0 2px 10px #7a6fdc55;
+            outline: none;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto 24px auto;
+            padding: 0 18px;
+        }
+
+        h2 {
+            font-size: 2.1rem;
+            font-family: 'Pacifico', cursive;
+            color: var(--accent-pink);
+            margin-bottom: 20px;
+            text-align: left;
+            letter-spacing: 1.2px;
+            text-shadow: 0 2px 8px #f29fb755;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+            gap: 28px;
+        }
+
+        .outfit {
+            background: linear-gradient(135deg, var(--pastel-yellow), var(--pastel-mint) 90%);
+            border-radius: 24px;
+            box-shadow: 0 8px 22px 0 #6b5ac822;
+            padding: 20px 16px 18px 16px;
+            transition: box-shadow 0.18s, transform 0.16s, border 0.17s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(6px);
+            border: 1.5px solid var(--border-soft);
+            position: relative;
+        }
+        .outfit:focus,
+        .outfit:hover {
+            box-shadow: 0 10px 32px #6b5ac844;
+            transform: translateY(-5px) scale(1.03);
+            border: 2.5px solid var(--accent-lavender);
+        }
+
+        .outfit img {
+            width: 100%;
+            max-width: 320px;
+            max-height: 245px;
+            object-fit: cover;
+            border-radius: 14px;
+            background: #ffffff;
+            margin-bottom: 10px;
+            border: 3px solid var(--accent-yellow);
+            box-shadow: 0 3px 20px #f7c94855;
+            z-index: 1;
+            transition: transform 0.15s;
+            cursor: pointer;
+            display: block;
+        }
+        .outfit:hover img {
+            transform: scale(1.04) rotate(-0.7deg);
+        }
+
+        /* NEW: wrapper to keep text aligned under image width */
+        .outfit-content {
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            padding: 0 6px 4px 6px;
+        }
+
+        .outfit-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 2px auto 0 auto;
+            letter-spacing: 0.04em;
+            text-transform: capitalize;
+            font-family: 'Montserrat', Arial, sans-serif;
+            line-height: 1.3;
+            word-wrap: break-word;
+        }
+
+        .cta {
+            display: block;
+            margin: 30px auto 10px auto;
+            padding: 11px 34px;
+            font-size: 0.98rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-mint) 30%, var(--accent-yellow) 100%);
+            color: #111111;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
+            box-shadow: 0 3px 16px #6b5ac866;
+        }
+        .cta:focus,
+        .cta:hover {
+            background: var(--accent-lavender);
+            outline: none;
+            color: #ffffff;
+            box-shadow: 0 5px 22px #7a6fdc99;
+            transform: translateY(-1px);
+        }
+
+        .trust {
+            background: linear-gradient(120deg, var(--pastel-pink) 55%, var(--pastel-lavender) 100%);
+            border-radius: 18px;
+            max-width: 715px;
+            margin: 40px auto 30px auto;
+            padding: 20px 30px;
+            box-shadow: 0 2px 16px #7a6fdc33;
+            backdrop-filter: blur(5px);
+        }
+        .trust h3 {
+            font-family: 'Pacifico', cursive;
+            color: var(--accent-mint);
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            margin-top: 0;
+        }
+        .trust ul {
+            padding-left: 16px;
+            margin: 0;
+        }
+        .trust li {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 7px;
+        }
+
+        /* CONTACT SECTION */
+        #contact {
+            max-width: 720px;
+            margin: 10px auto 40px auto;
+            padding: 24px 24px 22px 24px;
+            border-radius: 18px;
+            background: #ffffffee;
+            box-shadow: 0 3px 18px #6b5ac822;
+            border: 1px solid #e0d5ff;
+        }
+        #contact h2 {
+            color: var(--accent-lavender);
+            text-shadow: none;
+        }
+        #contact p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+        #contact a {
+            color: var(--accent-lavender);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-lavender);
+        }
+        #contact a:hover,
+        #contact a:focus {
+            color: var(--accent-pink);
+            border-bottom-color: var(--accent-pink);
+            outline: none;
+        }
+
+        /* LIGHTBOX / MODAL STYLES */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 92vw;
+            max-height: 88vh;
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            border: 2px solid var(--accent-lavender);
+        }
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 12px;
+            display: block;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            background: var(--accent-pink);
+            border: none;
+            border-radius: 999px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-close:focus {
+            outline: 2px solid var(--accent-yellow);
+        }
+
+        @media (max-width: 700px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            header, main {
+                padding-left: 6px;
+                padding-right: 6px;
+            }
+            .logo {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            nav a {
+                font-size: 0.86rem;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" aria-label="Lasni's Lassana Designs.">Lasni's Lassana Designs</div>
+        <nav aria-label="Main Navigation">
+            <a href="#gallery-section" id="nav-gallery" class="active" aria-label="Jump to Gallery">Gallery</a>
+            <a href="#contact" id="nav-contact" aria-label="Jump to Contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="gallery-section">
+            <h2>Featured Outfits</h2>
+            <section class="gallery" id="gallery"></section>
+            <section class="trust">
+                <h3>Why Choose Lasni's Lassana Designs?</h3>
+               <p>Lasni’s Lassana Designs creates one-of-a-kind, hand-crafted pieces made with care rather than mass production, so every item feels truly personal. The brand prioritizes sustainability through ethically sourced, eco-conscious materials that support artisans and reduce environmental impact. Genuine feedback from happy clients around the world reinforces this commitment to quality, integrity, and long-lasting style.​</p>
+            </section>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For custom orders, fittings, and collaborations, reach out directly:</p>
+            <p><strong>Email:</strong> <a href="mailto:lasni076@gmail.com">lasni076@gmail.com</a></p>
+        </section>
+    </main>
+
+    <!-- LIGHTBOX / MODAL -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged outfit image">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close enlarged image">&times;</button>
+            <img src="" alt="" class="lightbox-img" id="lightboxImg">
+        </div>
+    </div>
+
+    <script>
+        const imageNames = [
+            "blueblouse",
+            "darkbluerosedress",
+            "jungleflowertoddlerdress",
+            "pinkpolkadotblouse",
+            "stripedbluedress",
+            "whiterosetoddlerdress",
+            "whiteyellowpolkadottoddlerdress",
+            "tropicalyellowofficeblouse",
+            "pinkflowertoddlerdress",
+            "bluestripedtoddlerdress",
+        ];
+        const gallery = document.getElementById('gallery');
+
+        imageNames.forEach(name => {
+            const title = name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ");
+            const outfitDiv = document.createElement('div');
+            outfitDiv.className = "outfit";
+            outfitDiv.tabIndex = 0;
+            outfitDiv.innerHTML = `
+                <img src="img/${name}.png" alt="${title} fashion design by Lasni" aria-label="${title} fashion design" loading="lazy">
+                <div class="outfit-content">
+                    <div class="outfit-title">${title}</div>
+                </div>
+            `;
+            gallery.appendChild(outfitDiv);
+        });
+
+        // LIGHTBOX LOGIC
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        gallery.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target.tagName.toLowerCase() === 'img') {
+                lightboxImg.src = target.src;
+                lightboxImg.alt = target.alt;
+                lightbox.classList.add('open');
+                lightboxClose.focus();
+            }
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('open');
+            lightboxImg.src = '';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('open');
+                lightboxImg.src = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+                lightbox.classList.remove('open');
+                lightboxImg.src = '';
+            }
+        });
+
+        const navGallery = document.getElementById('nav-gallery');
+        const navContact = document.getElementById('nav-contact');
+        function setActive(link) {
+            navGallery.classList.remove('active');
+            navContact.classList.remove('active');
+            link.classList.add('active');
+        }
+        navGallery.addEventListener('click', () => setActive(navGallery));
+        navContact.addEventListener('click', () => setActive(navContact));
+    </script>
+</body>
+</html>
